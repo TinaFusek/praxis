@@ -1,0 +1,27 @@
+# secrets — never commit
+.env
+*.env
+
+# outputs of the scripts, not inputs
+runs/
+profile.json
+report.html
+*.log
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# NOTE: examples/*.json is INPUT and must be committed.
+# An earlier version of this file had a blanket `*.json`, which silently
+# excluded examples/rules-register.json — the one file the README tells you
+# to pass with --rules.

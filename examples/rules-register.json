@@ -1,0 +1,25 @@
+{
+  "_comment": "Domain rules for a company register. Everything here is knowledge the schema cannot supply: no amount of discovery reveals that a percentage column must not exceed 100.",
+
+  "required_properties": {
+    "Company": ["cid", "name"],
+    "Account": ["aid", "iban"],
+    "Person":  ["pid", "name"]
+  },
+
+  "aggregate_limits": [
+    {
+      "name": "Incoming ownership above 100%",
+      "relationship": "OWNS",
+      "property": "pct",
+      "label": "Company",
+      "max": 1.0
+    }
+  ],
+
+  "cycles": [
+    { "relationship": "OWNS", "min_length": 2, "max_length": 3 }
+  ],
+
+  "conflicting_relationships": []
+}
